@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tap Simulation</title>
+</head>
+<body>
+    <h1>{{ message }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Tap Card</button>
+    </form>
+</body>
+</html>
