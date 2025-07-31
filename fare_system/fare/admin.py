@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Passenger, FareSession, TapEvent, Transaction, TransportMode
 
-# Register your models here.
+admin.site.register(Passenger)
+admin.site.register(FareSession)
+admin.site.register(TapEvent)
+admin.site.register(Transaction)
+admin.site.register(TransportMode)
