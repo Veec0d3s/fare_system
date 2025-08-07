@@ -1,0 +1,54 @@
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simulate Tap</title>
+    <style>
+      .messages {
+        list-style: none;
+        padding: 0;
+      }
+      .messages li {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        color: white;
+      }
+      .alert-success {
+        background-color: #28a745;
+      }
+      .alert-danger {
+        background-color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Simulate Tap</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label>Card ID:</label>
+      <input type="text" name="card_id" required /><br /><br />
+
+      <label>Stage Name:</label>
+      <select name="stage_name" required>
+        {% for stage in stages %}
+        <option value="{{ stage.name }}">{{ stage.name }}</option>
+        {% endfor %}</select
+      ><br /><br />
+
+      <label>Tap Type:</label>
+      <select name="tap_type" required>
+        <option value="tap_in">Tap In</option>
+        <option value="tap_out">Tap Out</option></select
+      ><br /><br />
+
+      <button type="submit">Simulate</button>
+    </form>
+  </body>
+</html>
