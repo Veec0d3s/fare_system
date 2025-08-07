@@ -44,7 +44,6 @@ def simulate_tap(request, card_id, stage_name, tap_type):
 def calculate_fare(entry_stage, exit_stage):
     zone_difference = abs(entry_stage.fare_zone - exit_stage.fare_zone)
 
-    # Map zone ranges to prices
     fare_map = {
         0: 1000,  # Same zone
         1: 1000,
