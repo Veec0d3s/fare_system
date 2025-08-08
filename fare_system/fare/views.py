@@ -29,7 +29,6 @@ def simulate_tap(request, card_id, stage_name, tap_type):
     stage = get_object_or_404(Stage, name__iexact=stage_name.strip())
 
     if tap_type.lower() == "tap_in":
-        # Check for recent session within 30 minutes
         recent_session = FareSession.objects.filter(
             passenger=passenger,
             tap_out_time__isnull=False
