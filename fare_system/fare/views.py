@@ -38,7 +38,6 @@ def simulate_tap(request, card_id, stage_name, tap_type):
             messages.info(request, "Tap-in within 30 mins — no new session started.")
             return redirect('simulate_view')
 
-        # Else, start new session
         FareSession.objects.create(passenger=passenger, entry_stage=stage)
         messages.success(request, f"{card_id} tapped in at {stage.name}")
         return redirect('simulate_view')
